@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Reccomendation</title>
+</head>
+<body>
+
+    <nav>
+      <div class="container">
+        <h1>ROCIPE</h1>
+  
+        <div class="menu">
+          <a href="{{url_for('main')}} ">Home</a>
+          <a class="is-active" href="{{url_for('recommend')}}">Recommendation</a>
+          <a href="#">Contact</a>
+          <a href="/cart">Cart</a>
+        </div>
+  
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+   {{fav}}
+
+
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    </center>    <!--
+    <div class="recipe">
+        <h1>Maklobbaaah</h1>
+        <p>187 calories</p>
+        <img src="https://edamam-product-images.s3.amazonaws.com/web-img/a96/a967fbe797803dbe8418a668cf304b53.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB0aCXVzLWVhc3QtMSJIMEYCIQD2MRUh8%2FiV%2BrEY%2Bpb7KquQc1J7jh%2F9cCV9gL7sIJ4LgwIhAOGHvaVVqBT8OAoe%2Brk%2FOb7sM%2Buo7cGrF7xHuo5SmKSjKtIECHYQABoMMTg3MDE3MTUwOTg2IgxA7YipAqxa47kWxqgqrwTNoHbBlqqHHlx9DO%2B%2Bk6A%2FklN3SYVjekNNWgNRyRmuIMA2ws0vAK7zSw11QiW6u7%2Bzgq2bNuJ1EjBZJr5JGtlKKZEwmbVbdAWFtbD%2FfFHGZ2%2FkDVy8F4RCKmOrVoOmR9mNWxjJIPMDS6eU3CuRxC%2F5nACQY%2BtL%2F5n4ehaEJT1TkUqmLyiW5bgFizyxTwCNfcMFVR2cxeXQVnoLyNnh%2FurrzocWmCtfLSCsJwXTu6FPDd04J9RmUUcZiNN9ob2lLea11gZRifSM2V51ecCjHxYfyvZZZsUpgCgHdY2LospxOgvkDxH5gqb6hEvcfbeXusysvF9TmmPM2DS9DlVGspGNiP8nRN6Es%2B5YRgmkZlRAndW49guIU%2FHrmJGaNajGlyuz%2BeIFM9nqpDLir6tNzgULM9c4SjkFbdtEPan59IydXhYGVGF%2B3lqa0Lg7CoOOgi%2B%2BeGG%2BZvDq4OtGEFrKD1qs1nfrX%2F6YCaLx8RKIIPpAA%2B9hVZSXCtDcW4KPZYdrgoHpzpmCkZFieh0YN3g0pTXQu4QsV2czJ3wcpdSqkSpjBewQDqvhE5riHyTx3SdKbkYt%2B8rq6wkXjwvgpT9S%2BCfNF2kebXI3e5A578fd6K8RsSqJDYXpIsOGAXHOXgAJ43iyod6y7ltowQDZwtMCfRy717Z3PupwuVr6EWzSm%2FSxr3wOLtu3doOl80n3Qml0FNywUqyIdU%2FG7afVoKAPFv1lNbYsntl39qZUf8sUzOieMOmzpJcGOqgBkwwJ4XaHZOdQRtq38on2dtP%2FFQkYlj11YQR1CtdynhwPXEj9dRKNFerp8SDxRHogYTkws0VxORKqEMCXbuK%2B4AUwHVx5a2HFxBk%2FFcNs9fWiN3FB4KzPLp8MT5br%2Bfr5GxZLIn44Xg4m%2B4Rt8WrtvV6WRSh7p2fcw44exjvki0Dl6jWaTk9opZbCsDqrWtbs0Ob6Kqi8gq%2FuvLLIElnYMUE8umJe8xWG&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220802T131326Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFJTAOGOHY%2F20220802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2baaf821f3895f4c6db131286b8fad8106defa90b46df99cdde8679205260049"/>
+    </div>-->
+         {%for i in range(data.to)%}
+         <center>
+            <h4 class="label-3">We have seen that you like <u>{{fav}}</u>, here is our reccomendations for you:</h4>
+
+         <div class="recipe">
+             <p class="label">{{data["hits"][i]["recipe"]["label"]}}</p>
+             <p class="calories">Calories: {{data["hits"][i]["recipe"]["calories"]}}</p>
+             <h3>Ingredients:</h3>
+             <h5>{{data["hits"][i]["recipe"]["ingredientLines"]}}</h5>
+             <img src='{{data["hits"][i]["recipe"]["image"]}}'/>
+             <br/>
+             <a href='{{data["hits"][i]["recipe"]["url"]}}' target="_blank">More Info>></a>
+             </div>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+            </div>
+          </center>
+         {%endfor%}
+  <script>
+    
+
+
+
+/*
+    async function fetchText() {
+        const api_url = "https://api.edamam.com/search?q=" + document.getElementById('s').value + "&app_id=e49b953f&app_key=9f1cd52de97f5d9e826d37dae13ea45d"
+        console.log(api_url);
+    let response = await fetch(api_url);
+
+    console.log(response.status); // 200
+    console.log(response.statusText); // OK
+
+    if (response.status === 200) {
+        let data = await response.text();
+        console.log(data)
+    }
+}
+*/
+  </script>
+</body>
+</html>

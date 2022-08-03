@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body>
+    <center>
+        <h1 style="font-size: 70px; color: rgb(109, 10, 109)"> Rocipe</h1>
+    <form method="POST" action="/signup">
+        <!-- Heading -->
+        <h4>
+            Create an account
+        </h4>
+
+        <!-- Subheading -->
+        <p >
+            Please fill up your information below to sign up.
+        </p>
+
+        <!-- Email -->
+        <div>
+            <label>Email address*</label>
+            <div>
+                <input type="email"  name="email" id="emailStr" required>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div>
+            <label>Password*</label>
+            <div class="input-group">
+                <input type="password"  name="password" minlength="6">
+            </div>
+        </div>
+        <div>
+            <label>Full Name</label>
+            <div>
+                <input  name="full_name" required>
+            </div>
+        </div>
+        <div>
+            <label>Favorite Fruit/Vegtable
+            </label>
+            <div>
+                <input   name="fav" required>
+            </div>
+        </div>
+        
+        <!-- Button -->
+        <div>
+            <input type="submit"/>
+        </div>
+    </form>
+
+    <font color="red">{{ error }}</font>
+    <br>
+    <a href="/"><button>Do you already have an account? <b>Sign In</b></button></a>
+</center>
+</body>
+</html>
